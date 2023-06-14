@@ -1,6 +1,7 @@
 package server;
 
 public class TextGenerator {
+	
 	public static int wordCount(String text) {
 		if (text==null || text.isEmpty()) {
 			return 0;

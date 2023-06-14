@@ -7,6 +7,8 @@ import java.net.InetAddress;
 import java.net.Socket;
 import java.net.UnknownHostException;
 
+import server.TextGenerator;
+
 public class ClientSite {
 	
 	public static void main(String[] args) throws UnknownHostException, IOException
@@ -24,6 +26,11 @@ public class ClientSite {
 		// Read from network
 		BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(socket.getInputStream()));
 
+		// Display the current word count
+		TextGenerator textGenerator = new TextGenerator();
+		int getwordcount = textGenerator.wordCount();
+		clientTextFrame.wordCount(getwordcount);
+		
 		// Close everything
 		bufferedReader.close();
 		socket.close();
